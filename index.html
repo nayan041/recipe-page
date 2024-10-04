@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
+
+		<title>Frontend Mentor | Recipe page</title>
+
+		<style>
+			:root {
+				--White: hsl(0, 0%, 100%);
+
+				--Stone100: hsl(30, 54%, 90%);
+				--Stone150: hsl(30, 18%, 87%);
+				--Stone600: hsl(30, 10%, 34%);
+				--Stone900: hsl(24, 5%, 18%);
+
+				--Brown800: hsl(14, 45%, 36%);
+
+				--Rose800: hsl(332, 51%, 32%);
+				--Rose50: hsl(330, 100%, 98%);
+			}
+
+			@font-face {
+				font-family: Outfit;
+				src: url('./assets/fonts/outfit/Outfit-VariableFont_wght.ttf');
+				font-weight: 400 600 700;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: YoungSerif;
+				src: url('./assets/fonts/young-serif/YoungSerif-Regular.ttf');
+			}
+
+			*,
+			*::after,
+			*::before {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			html {
+				font-size: 62.5%;
+			}
+
+			body {
+				font-family: 'Outfit', sans-serif;
+				font-size: 1.5rem;
+				font-weight: 400;
+				line-height: 1.5;
+				background-color: var(--Stone100);
+				color: var(--Stone600);
+			}
+
+			.container {
+				width: 65%;
+				margin: 12rem auto;
+				background-color: var(--White);
+				border-radius: 2rem;
+				padding: 3.6rem;
+			}
+
+			.img {
+				width: 100%;
+				margin-bottom: 3rem;
+				border-radius: 1rem;
+			}
+
+			.heading {
+				font-family: 'YoungSerif', sans-serif;
+				line-height: 1.2;
+			}
+
+			h1 {
+				color: var(--Stone900);
+				font-size: 3.6rem;
+				margin-bottom: 1.6rem;
+				letter-spacing: 1px;
+			}
+
+			.section-time {
+				margin: 2.4rem 0;
+				padding: 2.4rem;
+				background-color: var(--Rose50);
+				border-radius: 1rem;
+			}
+
+			.section-time h3 {
+				color: var(--Rose800);
+				margin-bottom: 1rem;
+				font-weight: 600;
+			}
+
+			ul,
+			ol {
+				padding-left: 1.4rem;
+			}
+
+			li {
+				margin-bottom: 1rem;
+				/* list-style-position: inside; */
+				padding-left: 2rem;
+			}
+
+			.bullet-point-text {
+				font-weight: 600;
+				/* vertical-align: middle; */
+			}
+
+			.list-preparation li {
+				list-style: none;
+				list-style-type: '•';
+			}
+
+			.list-preparation li::marker {
+				color: var(--Rose800);
+				/* font-size: 1.1rem; */
+			}
+
+			h2 {
+				font-size: 2.6rem;
+				letter-spacing: 1px;
+				color: var(--Brown800);
+				margin-bottom: 2.4rem;
+			}
+
+			.list-ingredients li {
+				list-style: none;
+				/* list-style-type: '▪︎'; */
+				/* list-style-type or content inside ::marker pseudo element doing the same job */
+			}
+
+			.ingredients-text {
+				/* display: inline-block; */
+				/* vertical-align: middle; */
+				/* padding-bottom: 0.5rem; */
+			}
+
+			.list-ingredients li::marker {
+				content: '▪︎';
+				color: var(--Brown800);
+				/* font-size: 1.1rem;
+				vertical-align: text-top; */
+				/* // alignment problem occurs */
+			}
+
+			.hr-line {
+				border: none;
+				border-bottom: 2px solid var(--Stone150);
+				margin: 2.4rem 0;
+			}
+
+			ol li::marker {
+				color: var(--Brown800);
+				font-family: 'Outfit', sans-serif;
+				font-weight: 700;
+			}
+
+			.row-value {
+				color: var(--Brown800);
+				font-weight: 600;
+			}
+
+			table {
+				margin-top: 2.4rem;
+				width: 100%;
+				border-collapse: collapse;
+			}
+
+			td:first-child {
+				padding: 1rem 0;
+				width: 50%;
+				padding-left: 3.2rem;
+				border-bottom: 1px solid var(--Stone100);
+			}
+
+			tr:last-child td {
+				border-bottom: none;
+			}
+
+			td:last-child {
+				border-bottom: 1px solid var(--Stone100);
+				padding-left: 0.8rem;
+			}
+
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+
+			@media (max-width: 36.25em) {
+				.container {
+					width: 80%;
+					margin: 6rem auto;
+				}
+
+				@media (max-width: 23.5em) {
+					.container {
+						width: 100%;
+						margin: 0;
+						border-radius: 0;
+						padding: 0;
+					}
+
+					.img {
+						border-radius: 0;
+					}
+
+					.section-text {
+						margin: 0 3.6rem;
+						padding-bottom: 3.6rem;
+					}
+
+					h1 {
+						font-size: 3.2rem;
+					}
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="container">
+			<figure>
+				<img
+					class="img"
+					src="./assets/images/image-omelette.jpeg"
+					alt="classic omelette filled with cheese, vegetables, or meats"
+				/>
+			</figure>
+			<section class="section-text">
+				<div class="section-introduction">
+					<h1 class="heading">Simple Omelette Recipe</h1>
+					<p>
+						An easy and quick dish, perfect for any meal. This classic
+						omelette combines beaten eggs cooked to perfection, optionally
+						filled with your choice of cheese, vegetables, or meats.
+					</p>
+				</div>
+
+				<div class="section-time">
+					<h3>Preparation time</h3>
+					<ul class="list-preparation">
+						<li>
+							<span class="bullet-point-text">Total:</span> Approximately
+							10 minutes
+						</li>
+						<li>
+							<span class="bullet-point-text">Preparation:</span> 5
+							minutes
+						</li>
+						<li>
+							<span class="bullet-point-text">Cooking:</span> 5 minutes
+						</li>
+					</ul>
+				</div>
+
+				<div class="section-ingredients">
+					<h2 class="heading">Ingredients</h2>
+					<ul class="list-ingredients">
+						<li><span class="ingredients-text">2-3 large eggs</span></li>
+						<li><span class="ingredients-text">Salt, to taste</span></li>
+						<li>
+							<span class="ingredients-text">Pepper, to taste</span>
+						</li>
+						<li>
+							<span class="ingredients-text"
+								>1 tablespoon of butter or oil</span
+							>
+						</li>
+						<li>
+							Optional fillings: cheese, diced vegetables, cooked meats,
+							herbs
+						</li>
+					</ul>
+				</div>
+
+				<hr class="hr-line" />
+
+				<div class="section-instructions">
+					<h2 class="heading">Instructions</h2>
+					<ol>
+						<li>
+							<strong>Beat the eggs:</strong> In a bowl, beat the eggs
+							with a pinch of salt and pepper until they are well mixed.
+							You can add a tablespoon of water or milk for a fluffier
+							texture.
+						</li>
+						<li>
+							<strong>Heat the pan:</strong> Place a non-stick frying pan
+							over medium heat and add butter or oil.
+						</li>
+						<li>
+							<strong>Cook the omelette:</strong> Once the butter is
+							melted and bubbling, pour in the eggs. Tilt the pan to
+							ensure the eggs evenly coat the surface.
+						</li>
+						<li>
+							<strong>Add fillings (optional):</strong> When the eggs
+							begin to set at the edges but are still slightly runny in
+							the middle, sprinkle your chosen fillings over one half of
+							the omelette.
+						</li>
+						<li>
+							<strong>Fold and serve:</strong> As the omelette continues
+							to cook, carefully lift one edge and fold it over the
+							fillings. Let it cook for another minute, then slide it
+							onto a plate.
+						</li>
+						<li>
+							<strong>Enjoy:</strong> Serve hot, with additional salt and
+							pepper if needed.
+						</li>
+					</ol>
+				</div>
+
+				<hr class="hr-line" />
+
+				<div class="section-nutrition">
+					<h2 class="heading">Nutrition</h2>
+					<p>
+						The table below shows nutritional values per serving without
+						the additional fillings.
+					</p>
+					<table>
+						<tr>
+							<td>Calories</td>
+							<td class="row-value">277kcal</td>
+						</tr>
+						<tr>
+							<td>Carbs</td>
+							<td class="row-value">0g</td>
+						</tr>
+						<tr>
+							<td>Protein</td>
+							<td class="row-value">20g</td>
+						</tr>
+						<tr>
+							<td>Fat</td>
+							<td class="row-value">22g</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+		</main>
+
+		<div class="attribution">
+			Challenge by
+			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Aynul Islam</a>.
+		</div>
+	</body>
+</html>
